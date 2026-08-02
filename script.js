@@ -139,14 +139,14 @@ overlay.remove();
 // BURGER MENU
 // ==========================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
     const menuBtn = document.getElementById("menuBtn");
     const navMenu = document.getElementById("navMenu");
 
     if (!menuBtn || !navMenu) return;
 
-    menuBtn.addEventListener("click", () => {
+    menuBtn.addEventListener("click", function () {
 
         navMenu.classList.toggle("active");
 
