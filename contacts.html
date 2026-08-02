@@ -7,11 +7,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Контакты | Dyson</title>
+<title>Контакты | Dyson Supersonic™</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script src="script.js" defer></script>
 
@@ -22,12 +22,14 @@
 <header>
 
 <div class="logo">
-
 DYSON
-
 </div>
 
-<nav>
+<div class="menu-btn" id="menuBtn">
+☰
+</div>
+
+<nav id="navMenu">
 
 <a href="index.html">Главная</a>
 
@@ -43,10 +45,8 @@ DYSON
 
 </nav>
 
-<a href="#" class="buy">
-
+<a href="index.html#buy" class="buy">
 Купить
-
 </a>
 
 </header>
@@ -61,7 +61,7 @@ DYSON
 
 <p>
 
-Мы всегда готовы помочь с выбором Dyson Supersonic™
+Мы всегда готовы ответить на ваши вопросы и помочь с выбором Dyson Supersonic™.
 
 </p>
 
@@ -79,31 +79,33 @@ DYSON
 
 <div class="contact-item">
 
-📍 Казахстан, Алматы
+<h3>📍 Адрес</h3>
 
-ул. Абая, 150
-
-</div>
-
-<div class="contact-item">
-
-📞 +7 (777) 123-45-67
+<p>Алматы, Республика Казахстан</p>
 
 </div>
 
 <div class="contact-item">
 
-✉ info@dyson.kz
+<h3>📞 Телефон</h3>
+
+<p>+7 (777) 123-45-67</p>
 
 </div>
 
 <div class="contact-item">
 
-🕒
+<h3>✉ Email</h3>
 
-Пн–Вс
+<p>support@dyson.kz</p>
 
-10:00 – 21:00
+</div>
+
+<div class="contact-item">
+
+<h3>🕘 Время работы</h3>
+
+<p>Ежедневно с 09:00 до 20:00</p>
 
 </div>
 
@@ -121,18 +123,17 @@ DYSON
 
 <input type="text" placeholder="Ваше имя">
 
-<input type="email" placeholder="E-mail">
+<input type="email" placeholder="Email">
 
 <input type="tel" placeholder="Телефон">
 
 <textarea placeholder="Ваше сообщение"></textarea>
 
-<button>
+<button type="submit">
 
 Отправить
 
 </button>
-
 </form>
 
 </div>
@@ -143,22 +144,90 @@ DYSON
 
 <iframe
 src="https://www.google.com/maps?q=Almaty&output=embed"
-loading="lazy">
+loading="lazy"
+allowfullscreen>
+
 </iframe>
+
+</section>
+
+<section class="buy-block">
+
+<h2>
+
+Остались вопросы?
+
+</h2>
+
+<p>
+
+Свяжитесь с нами любым удобным способом. Мы поможем подобрать оригинальный Dyson Supersonic™ и ответим на все ваши вопросы.
+
+</p>
+
+<a href="order.html">
+
+<button>
+
+Перейти к покупке
+
+</button>
+
+</a>
 
 </section>
 
 <footer>
 
-<div class="footer-logo">
+<div class="footer-content">
 
-DYSON
+<div>
 
-</div>
+<h3>DYSON</h3>
 
 <p>
 
-© 2026 Dyson Kazakhstan
+Премиальная техника для ухода за волосами.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Контакты</h3>
+
+<p>
+
+📞 +7 (777) 123-45-67
+
+</p>
+
+<p>
+
+✉ support@dyson.kz
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Социальные сети</h3>
+
+<p>Instagram</p>
+
+<p>Telegram</p>
+
+<p>WhatsApp</p>
+
+</div>
+
+</div>
+
+<p class="copyright">
+
+© 2026 Dyson Kazakhstan. Все права защищены.
 
 </p>
 
