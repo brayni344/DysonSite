@@ -1,297 +1,228 @@
-// ======================================
-// DYSON WEBSITE
-// SCRIPT.JS
-// ======================================
+// ==========================
+// BURGER MENU
+// ==========================
 
-// ---------- Загрузка страницы ----------
+document.addEventListener("DOMContentLoaded", () => {
 
-window.addEventListener("load", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("navMenu");
 
-    document.body.classList.add("loading");
+    if(menuBtn && nav){
 
-});
+        menuBtn.addEventListener("click", () => {
 
-// ---------- Header ----------
+            nav.classList.toggle("active");
 
-const header = document.querySelector("header");
+            if(nav.classList.contains("active")){
 
-window.addEventListener("scroll", () => {
+                menuBtn.innerHTML="✕";
 
-    if(window.scrollY > 50){
+            }else{
 
-        header.style.background = "rgba(255,255,255,.95)";
-        header.style.boxShadow = "0 10px 35px rgba(0,0,0,.08)";
+                menuBtn.innerHTML="☰";
 
-    }else{
+            }
 
-        header.style.background = "rgba(255,255,255,.82)";
-        header.style.boxShadow = "none";
+        });
+
+        document.querySelectorAll("#navMenu a").forEach(link=>{
+
+            link.addEventListener("click",()=>{
+
+                nav.classList.remove("active");
+
+                menuBtn.innerHTML="☰";
+
+            });
+
+        });
 
     }
 
 });
 
-// ---------- Burger ----------
-
-const menuBtn = document.getElementById("menuBtn");
-
-const navMenu = document.getElementById("navMenu");
-
-if(menuBtn && navMenu){
-
-menuBtn.onclick = function(){
-
-navMenu.classList.toggle("active");
-
-if (navMenu.classList.contains("active")) {
-
-    menuBtn.innerHTML = "✕";
-
-} else {
-
-    menuBtn.innerHTML = "☰";
-
-}
-
-};
-
-}
-
-// ---------- Закрытие меню ----------
-
-document.querySelectorAll("#navMenu a").forEach(link=>{
-
-link.onclick=()=>{
-
-navMenu.classList.remove("active");
-
-menuBtn.innerHTML="☰";
-
-};
-
-});
-// ======================================
-// АНИМАЦИЯ ПОЯВЛЕНИЯ
-// ======================================
-
-const observer = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{
-threshold:0.15
-});
-
-document.querySelectorAll(
-
-"section,.feature,.review,.stats div,.gallery img,.buy-card,.about"
-
-).forEach(el=>{
-
-el.classList.add("fade");
-
-observer.observe(el);
-
-});
-
-// ======================================
-// ПЛАВНАЯ ПРОКРУТКА
-// ======================================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-
-anchor.addEventListener("click",function(e){
-
-const target=document.querySelector(this.getAttribute("href"));
-
-if(target){
-
-e.preventDefault();
-
-target.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-});
-
-});
-
-// ======================================
-// ЭФФЕКТ НА КНОПКАХ
-// ======================================
-
-document.querySelectorAll("button,.btn-main,.btn-white,.buy").forEach(btn=>{
-
-btn.addEventListener("mouseenter",()=>{
-
-btn.style.transform="translateY(-5px)";
-
-});
-
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="translateY(0px)";
-
-});
-
-});
-// ======================================
-// ГАЛЕРЕЯ (УВЕЛИЧЕНИЕ ФОТО)
-// ======================================
-
-document.querySelectorAll(".gallery-grid img").forEach(img=>{
-
-img.addEventListener("click",()=>{
-
-const overlay=document.createElement("div");
-
-overlay.className="image-overlay";
-
-overlay.innerHTML=`
-
-<img src="${img.src}" class="image-popup">
-
-`;
-
-document.body.appendChild(overlay);
-
-setTimeout(()=>{
-
-overlay.classList.add("show");
-
-},10);
-
-overlay.onclick=()=>{
-
-overlay.classList.remove("show");
-
-setTimeout(()=>{
-
-overlay.remove();
-
-},300);
-
-};
-
-});
-
-});
-
-// ======================================
-// ESC ЗАКРЫВАЕТ ФОТО
-// ======================================
-
-document.addEventListener("keydown",(e)=>{
-
-if(e.key==="Escape"){
-
-const overlay=document.querySelector(".image-overlay");
-
-if(overlay){
-
-overlay.remove();
-
-}
-
-}
-
-});
-
-// ======================================
-// ЭФФЕКТ ПАРАЛЛАКСА
-// ======================================
-
-window.addEventListener("mousemove",(e)=>{
-
-const img=document.querySelector(".hero-image img");
-
-if(!img) return;
-
-const x=(window.innerWidth/2-e.clientX)/60;
-
-const y=(window.innerHeight/2-e.clientY)/60;
-
-img.style.transform=`translate(${x}px,${y}px)`;
-
-});
-
-// ======================================
-// ЛЕНИВАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЙ
-// ======================================
-
-document.querySelectorAll("img").forEach(img=>{
-
-img.setAttribute("loading","lazy");
-
-});
-// ======================================
-// КНОПКА "ВВЕРХ"
-// ======================================
-
-const scrollBtn=document.createElement("div");
-
-scrollBtn.innerHTML="↑";
-
-scrollBtn.className="scroll-top";
-
-document.body.appendChild(scrollBtn);
+// ==========================
+// HEADER SHADOW
+// ==========================
+
+const header=document.querySelector("header");
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>500){
+    if(!header) return;
 
-scrollBtn.classList.add("show");
+    if(window.scrollY>30){
 
-}else{
+        header.style.boxShadow="0 10px 30px rgba(0,0,0,.12)";
+        header.style.background="rgba(255,255,255,.98)";
 
-scrollBtn.classList.remove("show");
+    }else{
 
-}
+        header.style.boxShadow="none";
+        header.style.background="rgba(255,255,255,.96)";
+
+    }
+
+});
+// ==========================
+// SMOOTH SCROLL
+// ==========================
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+
+    link.addEventListener("click",function(e){
+
+        const id=this.getAttribute("href");
+
+        if(id==="#" || id.length<2) return;
+
+        const block=document.querySelector(id);
+
+        if(block){
+
+            e.preventDefault();
+
+            block.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
 
 });
 
-scrollBtn.onclick=()=>{
+// ==========================
+// FADE ANIMATION
+// ==========================
 
-window.scrollTo({
+const observer=new IntersectionObserver((entries)=>{
 
-top:0,
+    entries.forEach(entry=>{
 
-behavior:"smooth"
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:.15
+});
+
+document.querySelectorAll("section,.card,.review,.tech,.feature").forEach(el=>{
+
+    el.classList.add("fade");
+
+    observer.observe(el);
 
 });
 
-};
+// ==========================
+// IMAGE ZOOM
+// ==========================
 
-// ======================================
-// ТЕКУЩИЙ ПУНКТ МЕНЮ
-// ======================================
+document.querySelectorAll(".gallery img").forEach(img=>{
 
-const current=location.pathname.split("/").pop();
+    img.addEventListener("click",()=>{
 
-document.querySelectorAll("nav a").forEach(link=>{
+        const overlay=document.createElement("div");
 
-const href=link.getAttribute("href");
+        overlay.style.position="fixed";
+        overlay.style.left="0";
+        overlay.style.top="0";
+        overlay.style.width="100%";
+        overlay.style.height="100%";
+        overlay.style.background="rgba(0,0,0,.85)";
+        overlay.style.display="flex";
+        overlay.style.alignItems="center";
+        overlay.style.justifyContent="center";
+        overlay.style.zIndex="99999";
 
-if(href===current){
+        const image=document.createElement("img");
 
-link.classList.add("active");
+        image.src=img.src;
+        image.style.maxWidth="90%";
+        image.style.maxHeight="90%";
+        image.style.borderRadius="20px";
+        image.style.boxShadow="0 20px 50px rgba(0,0,0,.5)";
 
-}
+        overlay.appendChild(image);
+
+        overlay.addEventListener("click",()=>{
+
+            overlay.remove();
+
+        });
+
+        document.body.appendChild(overlay);
+
+    });
+
+});
+// ==========================
+// BUTTON EFFECT
+// ==========================
+
+document.querySelectorAll("button").forEach(button=>{
+
+    button.addEventListener("mouseenter",()=>{
+
+        button.style.transform="translateY(-3px) scale(1.02)";
+
+    });
+
+    button.addEventListener("mouseleave",()=>{
+
+        button.style.transform="translateY(0) scale(1)";
+
+    });
 
 });
 
-// ======================================
-// КОНЕЦ SCRIPT.JS
-// ======================================
+// ==========================
+// ACTIVE MENU
+// ==========================
+
+const currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll("#navMenu a").forEach(link=>{
+
+    const href = link.getAttribute("href");
+
+    if(href === currentPage){
+
+        link.style.color = "#7a3aed";
+        link.style.fontWeight = "700";
+
+    }
+
+});
+
+// ==========================
+// PRELOADER (если появится)
+// ==========================
+
+window.addEventListener("load",()=>{
+
+    const preloader=document.querySelector(".preloader");
+
+    if(preloader){
+
+        preloader.style.opacity="0";
+
+        setTimeout(()=>{
+
+            preloader.remove();
+
+        },500);
+
+    }
+
+});
