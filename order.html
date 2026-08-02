@@ -11,6 +11,8 @@
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <script src="script.js" defer></script>
 
 </head>
@@ -21,11 +23,17 @@
 
 <div class="logo">
 
-<img src="images/logo.png" alt="Dyson">
+DYSON
 
 </div>
 
-<nav>
+<div class="menu-btn" id="menuBtn">
+
+☰
+
+</div>
+
+<nav id="navMenu">
 
 <a href="index.html">Главная</a>
 
@@ -37,9 +45,15 @@
 
 <a href="reviews.html">Отзывы</a>
 
-<a href="specs.html">Характеристики</a>
+<a href="contacts.html">Контакты</a>
 
 </nav>
+
+<a href="order.html" class="buy">
+
+Купить
+
+</a>
 
 </header>
 
@@ -53,61 +67,180 @@
 
 <p>
 
-Заполните форму и мы свяжемся с вами.
+Заполните форму, и мы свяжемся с вами для подтверждения заказа.
 
 </p>
 
 </section>
 
-<section class="order">
+<section class="contact-wrapper">
+
+<div class="contact-info">
+
+<h2>
+
+Dyson Supersonic™
+
+</h2>
+
+<img src="images/dyson-main.png" alt="Dyson">
+
+<h3 style="margin-top:25px;">
+
+299 990 ₸
+
+</h3>
+
+<p>
+
+✔ Оригинальный товар</p>
+
+<p>✔ Гарантия 2 года</p>
+
+<p>✔ Быстрая доставка</p>
+
+<p>✔ Полная комплектация</p>
+
+</div>
+
+<div class="contact-form">
+
+<h2>
+
+Ваши данные
+
+</h2>
 
 <form>
 
 <input type="text" placeholder="Ваше имя" required>
 
-<input type="tel" placeholder="+7 (___) ___-__-__" required>
+<input type="tel" placeholder="Телефон" required>
 
-<input type="email" placeholder="E-mail">
+<input type="email" placeholder="Email">
 
-<select>
-
-<option>Выберите цвет</option>
-
-<option>Ceramic Pink / Rose Gold</option>
-
-<option>Nickel / Copper</option>
-
-<option>Blue / Blush</option>
-
-<option>Prussian Blue</option>
-
-</select>
-
-<select>
-
-<option>Способ оплаты</option>
-
-<option>Полная оплата</option>
-
-<option>Рассрочка 12 месяцев</option>
-
-</select>
+<input type="text" placeholder="Город">
 
 <textarea placeholder="Комментарий к заказу"></textarea>
 
-<button>
+<button type="submit">
 
 Оформить заказ
 
 </button>
-
 </form>
+
+</div>
+
+</section>
+
+<section class="buy-block">
+
+<div class="container">
+
+<h2>
+
+Спасибо за выбор Dyson
+
+</h2>
+
+<p>
+
+После отправки заявки наш менеджер свяжется с вами, подтвердит заказ и уточнит удобное время доставки.
+
+</p>
+
+<div class="price">
+
+299 990 ₸
+
+</div>
+
+<a href="index.html">
+
+<button class="buy-btn">
+
+Вернуться на главную
+
+</button>
+
+</a>
+
+</div>
 
 </section>
 
 <footer>
 
-© 2026 Dyson
+<div class="container">
+
+<div class="footer-top">
+
+<div>
+
+<h3>
+
+DYSON
+
+</h3>
+
+<p>
+
+Оригинальная техника Dyson для профессионального ухода за волосами.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+Навигация
+
+</h3>
+
+<p><a href="index.html">Главная</a></p>
+
+<p><a href="products.html">Комплектация</a></p>
+
+<p><a href="technology.html">Технологии</a></p>
+
+<p><a href="gallery.html">Галерея</a></p>
+
+<p><a href="reviews.html">Отзывы</a></p>
+
+<p><a href="contacts.html">Контакты</a></p>
+
+</div>
+
+<div>
+
+<h3>
+
+Контакты
+
+</h3>
+
+<p>📍 Алматы, Казахстан</p>
+
+<p>📞 +7 (777) 123-45-67</p>
+
+<p>✉ support@dyson.kz</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 Dyson Kazakhstan. Все права защищены.
+
+</p>
+
+</div>
 
 </footer>
 
