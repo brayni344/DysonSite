@@ -135,3 +135,27 @@ overlay.remove();
 });
 
 });
+// ==========================
+// BURGER MENU
+// ==========================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+
+    if (!menuBtn || !navMenu) return;
+
+    menuBtn.addEventListener("click", () => {
+
+        navMenu.classList.toggle("active");
+
+        if (navMenu.classList.contains("active")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    });
+
+});
