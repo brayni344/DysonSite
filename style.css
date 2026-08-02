@@ -1145,3 +1145,141 @@ padding:35px 20px;
 }
 
 }
+/* ==========================
+TECHNOLOGY
+========================== */
+
+.tech-section{
+    max-width:1200px;
+    margin:80px auto;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    gap:60px;
+}
+
+.tech-section.reverse{
+    flex-direction:row-reverse;
+}
+
+.tech-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.tech-image img{
+    width:100%;
+    max-width:420px;
+    height:320px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.tech-text{
+    flex:1;
+}
+
+.tech-text h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.tech-text p{
+    font-size:18px;
+    line-height:1.8;
+    color:#666;
+}
+
+/* ==========================
+REVIEWS
+========================== */
+
+.reviews{
+    max-width:1200px;
+    margin:80px auto;
+    padding:0 40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+.review{
+    background:#fff;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.review img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:0 auto 20px;
+}
+
+.review h3{
+    margin-bottom:10px;
+    font-size:24px;
+}
+
+.review p{
+    color:#666;
+    line-height:1.8;
+}
+
+.stars{
+    color:#f5b301;
+    font-size:22px;
+    margin:15px 0;
+    letter-spacing:3px;
+}
+
+.rating{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.rating h1{
+    font-size:72px;
+    color:#7c3aed;
+}
+
+.rating p{
+    font-size:20px;
+    color:#666;
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:900px){
+
+    .tech-section,
+    .tech-section.reverse{
+        flex-direction:column;
+        text-align:center;
+        padding:0 20px;
+    }
+
+    .tech-image img{
+        max-width:280px;
+        height:220px;
+    }
+
+    .reviews{
+        grid-template-columns:1fr;
+        padding:0 20px;
+    }
+
+    .review img{
+        width:100px;
+        height:100px;
+    }
+
+}
